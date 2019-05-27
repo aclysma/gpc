@@ -1,11 +1,11 @@
 extern crate bindgen;
-extern crate gcc;
+extern crate cc;
 
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    gcc::Build::new().file("src/gpc.c").compile("gpc");
+    cc::Build::new().file("src/gpc.c").compile("gpc");
 
     let bindings = bindgen::Builder::default()
         .header("src/gpc.h")

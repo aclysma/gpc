@@ -22,10 +22,10 @@ pub enum ClipOperation {
 impl ClipOperation {
     fn into_gpc_op(self) -> gpc::gpc_op {
         match self {
-            ClipOperation::Difference => gpc::gpc_op::GPC_DIFF,
-            ClipOperation::Intersection => gpc::gpc_op::GPC_INT,
-            ClipOperation::ExclusiveOr => gpc::gpc_op::GPC_XOR,
-            ClipOperation::Union => gpc::gpc_op::GPC_UNION,
+            ClipOperation::Difference => gpc::gpc_op_GPC_DIFF,
+            ClipOperation::Intersection => gpc::gpc_op_GPC_INT,
+            ClipOperation::ExclusiveOr => gpc::gpc_op_GPC_XOR,
+            ClipOperation::Union => gpc::gpc_op_GPC_UNION,
         }
     }
 }
