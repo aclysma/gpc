@@ -48,6 +48,12 @@ impl Vertex {
 
 pub struct Polygon(gpc::gpc_polygon);
 
+// The library doesn't mind if the data migrates to another thread
+unsafe impl Send for Polygon {}
+
+// It's safe for multiple threads to share read-only access to the data
+unsafe impl Sync for Polygon {}
+
 impl Polygon {
     pub fn new() -> Polygon {
         Polygon(gpc::gpc_polygon {
@@ -164,6 +170,12 @@ impl<'a> Iterator for ContourVertices<'a> {
 }
 
 pub struct Tristrip(gpc::gpc_tristrip);
+
+// The library doesn't mind if the data migrates to another thread
+unsafe impl Send for Tristrip {}
+
+// It's safe for multiple threads to share read-only access to the data
+unsafe impl Sync for Tristrip {}
 
 impl Tristrip {
     pub fn new() -> Tristrip {
